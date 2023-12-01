@@ -1,14 +1,39 @@
+// const btnEl = document.querySelectorAll('button');
+
+// var advancedFormat = require('dayjs/plugin/advancedFormat');
+// dayjs.extend(advancedFormat);
+let today = dayjs().format('dddd, MMMM D');
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+// to satisfy the above requirement, do I use window.on("load") or document.ready?
+$(document).ready(function() {
+  // set current Date above planner table
+  $('#currentDay').text(today);
+  
+  // get localstorage info and display in appropriate textarea
+  $('textarea').each(function() {
+    let hourId = $(this).parent().attr('id');
+    let activityText = localStorage.getItem(hourId + 'activity');
+    $(this).val(activityText);
+  })
+});
+
+// function that adds button eventlistener and saves textarea (aka activities) to local storage
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
+  $('button').on('click', function(ev) {
+    let hourId = $(this).parent().attr('id');
+    let activity = $('#' + hourId).children('textarea').val();
+    localStorage.setItem(hourId + 'activity', activity);
+  });
+
+
+
+
+ 
+  
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
