@@ -12,7 +12,6 @@ $(document).ready(function() {
     let activityText = localStorage.getItem(hourId + 'activity');
     $(this).val(activityText);
     // compare the time-block of the textarea to the current hour of the day and apply appropriate bkgrnd color
-    currentHour = 14;
     if (hourId == currentHour) {
       $(this).parent().addClass("present");
     } else if (hourId < currentHour) {
