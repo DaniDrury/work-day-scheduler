@@ -7,8 +7,7 @@ the day.js date utility library for date and time data. As a coding bootcamp stu
 practice DOM navigation and manipulation, 3rd party api usage, and frameworks such as jquery and bootstrap.
 
 ## Usage
-URL:  https://danidrury.github.io/work-day-scheduler/
-Click time blocks to enter appointment information. Click the save icon at the end of the row to save appointment to local storage.
+URL:  https://danidrury.github.io/work-day-scheduler/  Click time blocks to enter appointment information. Click the save icon at the end of the row to save appointment to local storage.
 
 ![schedule grid by hour from 9am to 5pm, color-coded, with save buttons for each hour block](./assets/images/screenshot.png)
 
