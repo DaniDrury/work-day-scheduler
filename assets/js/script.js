@@ -1,4 +1,7 @@
-let today = dayjs().format('dddd, MMMM D');
+// loads advancedFormat dayjs plugin to allow for ordinal display of date
+dayjs.extend(window.dayjs_plugin_advancedFormat);
+
+let today = dayjs().format('dddd, MMMM Do');
 let currentHour = dayjs().hour();
 
 $(document).ready(function() {
